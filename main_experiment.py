@@ -23,7 +23,6 @@ def message_display(text):
     """
     Function to display a given message in the middle of the SCREEN
     handles the button press of the user to go to the main loop
-
     parameters: text to be shown
     Returns: 1 when button is pressed
     """
@@ -70,6 +69,13 @@ def writeData(datalist, subID):
     """
     Function to write the list of responses to a csv dataFile
     """
+
+    with open('sub[{}].csv'.format(subID), 'wb') as csvfile:
+        filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+        filewriter.writeow(['SubjectID','StimulusType','response','RT'])
+        for instance in datalist:
+            filewriter.writeow(instance)
+
     # create a csvfile for each subject and name it: Sub[subID].csv
     # add a header ('SubjectID','StimulusType','response','RT') to the csvfile
     # and write each entry of datalist to a single row
