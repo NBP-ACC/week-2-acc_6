@@ -70,7 +70,7 @@ def writeData(datalist, subID):
     Function to write the list of responses to a csv dataFile
     """
     os.chdir('Data')
-    with open('sub[{}].csv'.format(subID), 'w') as csvfile:
+    with open('sub{}.csv'.format(subID), 'w') as csvfile:
         filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
         filewriter.writerow(['SubjectID','StimulusType','response','RT'])
         for instance in datalist:
