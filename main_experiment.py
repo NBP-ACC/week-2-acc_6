@@ -76,10 +76,6 @@ def writeData(datalist, subID):
         for instance in datalist:
             filewriter.writerow(instance)
 
-    # create a csvfile for each subject and name it: Sub[subID].csv
-    # add a header ('SubjectID','StimulusType','response','RT') to the csvfile
-    # and write each entry of datalist to a single row
-    # TODO
 
 
 ######                 main experiment loop            ##########
@@ -105,7 +101,6 @@ def experiment(subID):
                 pygame.display.flip()
                 pygame.time.wait(500) # Display fixation cross for 500 milliseconds
                 #clear event buffer so they are not misunderstood as responses
-                #pygame.event.clear(pygame.KEYDOWN)
                 pygame.event.clear()
                 #show stimulus and get RT and response
                 draw_stimulus(stim)
@@ -144,7 +139,7 @@ def experiment(subID):
 
 if __name__ == "__main__":
     #Fill this before start of the experiment
-    subID = 1
+    subID = 12
     dataFile = experiment(subID)
     print('*'*30)
     print('Writing in data file: Sub{}.csv'.format(subID))
