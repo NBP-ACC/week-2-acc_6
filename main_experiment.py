@@ -105,7 +105,8 @@ def experiment(subID):
                 pygame.display.flip()
                 pygame.time.wait(500) # Display fixation cross for 500 milliseconds
                 #clear event buffer so they are not misunderstood as responses
-                pygame.event.clear(pygame.KEYDOWN)
+                #pygame.event.clear(pygame.KEYDOWN)
+                pygame.event.clear()
                 #show stimulus and get RT and response
                 draw_stimulus(stim)
                 pygame.display.flip()
@@ -124,12 +125,13 @@ def experiment(subID):
                         # if 1000ms have passed do a countdown check
                         if event.type == countdown_check:
                             countdown -= 1
+
                         # if subject has pressed a button
                         if event.type == pygame.KEYDOWN:
                             if event.key == pygame.K_SPACE:
                                 # Time elapsed from stimulus to button press
-                                RT =   # TODO
-                                response = # TODO
+                                RT = pygame.time.get_ticks() - start
+                                response = 1
 
                 fill_background()# clear the screen
                 pygame.display.flip()
@@ -142,7 +144,7 @@ def experiment(subID):
 
 if __name__ == "__main__":
     #Fill this before start of the experiment
-    subID = # TODO ID of the subject
+    subID = 1
     dataFile = experiment(subID)
     print('*'*30)
     print('Writing in data file: Sub{}.csv'.format(subID))

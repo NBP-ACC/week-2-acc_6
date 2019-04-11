@@ -54,7 +54,7 @@ NUMTRIAL = 100
 
 # Set number of nogo trials in the experiment
 # How should you name the variable?
-PCT_NOGO = 20
+PCT_NOGO = 0.2
 
 # Set the time interval in seconds of the delay
 # from end of trial n and beginning of trial n+1
